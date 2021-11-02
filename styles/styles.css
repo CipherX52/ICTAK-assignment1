@@ -1,0 +1,82 @@
+*{
+    padding:0px;
+    margin:0px;
+  }
+
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+  }
+  
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+.logo{
+    height: 55px;
+    width: auto;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel .carousel-item{
+  margin-top: 65px;
+  height: 400px;
+}
+
+#my-nav{
+  display: table;
+  width: 100%;
+}
+
+#carouselExampleCaptions .carousel-item img{
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+}
+
+#carouselExampleCaptions .carousel-item:before{
+  content:"";
+  background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+  display: block;
+  position: absolute;
+  top:0;
+  width:100vw;
+  height:100vh;
+}
+
+.btc{
+  object-fit: contain;
+  object-position: center;
+  overflow: hidden;
+}
+
+.card-body{
+  margin-left: -30px;
+}

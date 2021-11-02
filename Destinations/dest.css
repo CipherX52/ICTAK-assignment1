@@ -1,0 +1,51 @@
+.district{
+    height: 250px;
+    width:100%;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left:10px;
+}
+
+.w-100{
+    object-fit: contain;
+}
+.map_png{
+    display: block;
+    width: 90%;
+    height: 90%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+}
+
+.map_name{
+    margin-left: -60px;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    .column {
+      width: 100%;
+    }
+}
+
+.my-grid{
+  margin-top: -70px;
+}
