@@ -28,3 +28,11 @@
     overflow: hidden;
     height:50vh;
 }
+
+.my-card{
+  border-radius: 10px !important;
+}
+
+.row{
+  padding-bottom: 20px;
+}
