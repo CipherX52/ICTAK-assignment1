@@ -1,2 +1,1 @@
-# ICTAK-assignment1
 
