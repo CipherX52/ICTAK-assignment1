@@ -4,12 +4,13 @@
 }
 
 body{
-    background-image:url("...") !important;
+    background-image:url("../images/loginbg.jpg") !important;
+    background-size: cover;
 }
 
 .my-card{
     border-radius: 20px !important;
-    background-color: rgba(0, 0, 0, 0.05) !important;
+    background-color:white !important;
 }
 
 .card{ 
