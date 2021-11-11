@@ -43,23 +43,29 @@
         <div class="card-header">
             Log In to Kerala Tourism
         </div>
+  
+        <!-- form below -->
+    <form id="loginform" onsubmit="return validate();" novalidate>
 
     <div class="form-floating mb-3">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
+        <p class="text-start warn" id="warn1"></p>
+        <!-- use innerText above -->
     </div>
 
     <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
+        <p class="text-start warn" id="warn2"></p>
+        <!-- use innerText above -->
     </div>
 
 </br>
-
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Log In</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Log In</button>
     </div>
-
+  </form>
 </br>
 
     <div class="card-footer text-muted">
@@ -85,6 +91,7 @@
     </div>
     </div>
 
+    <script src="../scripts/login.js"></script>
 </body>
 
 </html>

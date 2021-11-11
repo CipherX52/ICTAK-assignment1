@@ -84,3 +84,11 @@
 .content{
   padding-bottom: 50px !important;
 }
+
+.content1{
+    margin-top: 50px !important;
+    border:solid green 5px;
+    border-radius: 10px;
+    margin:auto;
+    width: 50%;
+}
