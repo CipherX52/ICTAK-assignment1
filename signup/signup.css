@@ -44,4 +44,27 @@ body{
 
 .my-row{
     margin-top: 45px !important;
+    height: 100%;
+}
+
+.warn{
+    margin-top:5px;
+    font-size: small;
+    margin-left:10px;
+    /* comment the next line out */
+    color: red;
+}
+
+#strength{
+    background-color:rgba(255, 0, 0, 0.8);
+    width:100%;
+    color:white !important;
+    align-items: center;
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+#warnPass{
+    margin-top: -10px;
 }

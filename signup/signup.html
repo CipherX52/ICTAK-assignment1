@@ -43,34 +43,41 @@
         <div class="card-header text-light">
             Sign Up quick and easy.
         </div>
-  <form action="">
+  <form action="" onsubmit="return validate();" id="signupform" novalidate>
     <div class="form-floating mb-2">
-        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+        <input type="text" class="form-control" id="name" placeholder="name">
         <label for="floatingInput">Name</label>
+        <p class="text-start warn" id="warnName"></p>
     </div>
 
     <div class="form-floating mb-2">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
+        <p class="text-start warn" id="warnEmail"></p>
     </div>
 
     <div class="form-floating mb-2">
-      <input type="tel" class="form-control" id="floatingInput" placeholder="Phone Number">
+      <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
       <label for="floatingInput">Phone Number</label>
+      <p class="text-start warn" id="warnPhone"></p>
     </div>
 
     <div class="form-floating mb-2">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="Password" placeholder="Password">
       <label for="floatingPassword">Password</label>
+      <p class="text-center" id = "strength">weak</p>
+      <p class="text-start warn" id="warnPass">blaha</p>
+
     </div>
 
     <div class="form-floating mb-2">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="Password2" placeholder="Password">
       <label for="floatingPassword">Re-type Password</label>
+      <p class="text-start warn" id="warnRePass"></p>
     </div>
   </br>
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Log In</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">SIgn Up</button>
     </div>
   </form>
 
@@ -87,6 +94,7 @@
     </div>
     </div>
 
+<script src="../scripts/signup.js"></script>
 </body>
 
 </html>
