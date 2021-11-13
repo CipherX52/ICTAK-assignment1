@@ -56,15 +56,11 @@ body{
 }
 
 #strength{
-    background-color:rgba(255, 0, 0, 0.8);
     width:100%;
     color:white !important;
     align-items: center;
     margin-top: 5px;
     padding: 2px;
     border-radius: 5px;
-}
-
-#warnPass{
-    margin-top: -10px;
+    display: none;
 }

@@ -16,19 +16,18 @@ function init(){
     document.getElementById("Password").classList.remove("is-valid");
     document.getElementById("Password2").classList.remove("is-invalid");
     document.getElementById("Password2").classList.remove("is-valid");
-    var warnings = document.getElementsByClassName("warn");
-    for (var i=0; i<warnings.length; i++){
-        warnings[i].style.color="red";
-    }
 }
 
 function strengthChecker(x){
-    regMedium = /^$/;
-    regStrong = /^$/;
+    let regMedium1 = /(?=.*?[0-9])(?=.*?[a-z])(?=.{8,}?)/;
+    let regMedium2 = /(?=.*?[0-9])(?=.*?[A-Z])(?=.{8,}?)/;
+    let regMedium3 = /(?=.*?[a-z])(?=.*?[A-Z])(?=.{8,}?)/;
+    let regMedium4 = /(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.{5,7}?)/;
+    let regStrong = /(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.{8,}?)/;
     if(regStrong.test(x)){
         return("strong");
     }
-    else if(regMedium.test(x)){
+    else if(regMedium1.test(x)||regMedium2.test(x)||regMedium3.test(x)||regMedium4.test(x)){
         return("medium");
     }
     else{
@@ -40,7 +39,7 @@ function validate(){
     let regName = /^([a-zA-Z]+)([\s[a-zA-Z]+]*)?$/;
     let regPhone = /^(\d{3}([\.\-\s])?){2}(\d){4}$/;
     let regEmail = /^([\w\.\-]+)@([\w^\_\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
-    // let regPass = //;
+
     let name = document.getElementById("name");
     let email = document.getElementById("email");
     let phone = document.getElementById("phone");
@@ -60,8 +59,6 @@ function validate(){
         name.classList.add("is-invalid");
     }
     else{
-        document.getElementById("warnName").innerText = "Looks good!";
-        document.getElementById("warnName").style.color = "green";
         name.classList.add("is-valid");
         a++;
     }
@@ -76,8 +73,6 @@ function validate(){
         email.classList.add("is-invalid");
     }
     else{
-        document.getElementById("warnEmail").innerText = "Looks good!";
-        document.getElementById("warnEmail").style.color="green";
         email.classList.add("is-valid");
         a++
     }
@@ -92,9 +87,7 @@ function validate(){
         phone.classList.add("is-invalid");
     }
     else{
-        document.getElementById("warnPhone").innerText = "Looks good!";
-        document.getElementById("warnPhone").style.color="green";
-        email.classList.add("is-valid");
+        phone.classList.add("is-valid");
         a++
     }
 
@@ -104,22 +97,34 @@ function validate(){
         pass.classList.add("is-invalid");
     }
     
-    // implement a dynamic strength meter for password, that updates as the password is entered
-    // so have to use a different function which listens to a different event on a different element
-    // else if(){
-    //     document.getElementById("warnPass").innerText = "Password must be atleast 8 characters long with at least one number, an uppercase letter and a lower case letter";
-    //     pass.classList.add("is-invalid");
-    // }
+    // implement a dynamic strength meter for password, that updates as the password is entered...
+    // so have to use a different function which listens to a different event on a different element (possibly the same element)
+    // gonna leave this for now, get back to it later maybe (probably)
 
+    else if(strengthChecker(pass.value)==="weak"){
+        document.getElementById("warnPass").innerText = "Password must be at least 8 characters long with at least one number, an uppercase letter and a lower case letter";
+        document.getElementById("strength").innerText = "Password strength is weak";
+        document.getElementById("strength").style.backgroundColor = "rgba(255, 0, 0, 0.8)";
+        document.getElementById("strength").style.display="inherit";
+        pass.classList.add("is-invalid");
+    }
+    else if(strengthChecker(pass.value)==="medium"){
+        document.getElementById("warnPass").innerText = "Password must be at least 8 characters long with at least one number, an uppercase letter and a lower case letter";
+        document.getElementById("strength").innerText = "Password strength is medium";
+        document.getElementById("strength").style.backgroundColor = "rgba(255, 165, 0, 0.8)";
+        document.getElementById("strength").style.display="inherit";
+        pass.classList.add("is-invalid");
+    }
     else if(strengthChecker(pass.value)==="strong"){
-        document.getElementById("warnPass").innerText = "Looks good!";
-        document.getElementById("warnPass").style.color="green";
+        document.getElementById("strength").innerText = "Password is strong";
+        document.getElementById("strength").style.backgroundColor = "rgba(0, 255, 0, 0.8)";
+        document.getElementById("strength").style.display="inherit";
         pass.classList.add("is-valid");
         a++
     }
 
     // password2
-    if(pass2.value===""){
+    if(pass2.value===""||strengthChecker(pass.value)!=="strong"){
         document.getElementById("warnRePass").innerText = "Please re-enter your password";
         pass2.classList.add("is-invalid");
     }
@@ -128,20 +133,15 @@ function validate(){
         pass2.classList.add("is-invalid");
     }
     else{
-        document.getElementById("warnRePass").innerText = "Looks good!";
-        document.getElementById("warnRePass").style.color="green";
         pass2.classList.add("is-valid");
         a++
     }
 
-    
-    // uncomment the conditional block below to return a  true and execute the action for the form
-    // currently, for the purpose of validation and showcasing the validation, the action won't be executed
-
-    // if(a===5){
-    //     return true;
-    // }
-
-    alert(a);
+    if(a===5){
+        return false;
+        //change the above return value to true, so that the form action may be executed after validation
+        //currently set to false, so that validation mey be observed after successful completion
+    }
+    // alert(a);
     return false;
 }
